@@ -60,11 +60,6 @@ cd initrd
 	echo 'sysctl -w kernel.printk="2 4 1 7"' >> init
 	echo '/bin/sh' >> init
     echo 'poweroff -f' >> init
-	
-	echo '# Simple Login Section' >> init
-	echo '::askconsole -c /bin/sh # Launch /bin/sh on primary console' >> init
-	echo '::respawn:-/bin/getty 38400 console # Continuously respawn getty on the console' >> init
-
 
 	chmod -R 777 ./
 

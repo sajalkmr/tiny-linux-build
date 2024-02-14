@@ -9,6 +9,11 @@ cd src
 	#kernel
 	KERNEL_MAJOR=$(echo $KERNEL_VERSION | sed 's/\([0-9]*\)[^0-9].*/\1/')
 	wget https://mirrors.edge.kernel.org/pub/linux/kernel/v$KERNEL_MAJOR.x/linux-$KERNEL_VERSION.tar.xz
+	if [ $? -ne 0 ]; then
+    	echo "Kernel download failed! Check your network connection."
+    	exit 1
+    fi
+
 	tar -xf linux-$KERNEL_VERSION.tar.xz
 	cd linux-$KERNEL_VERSION
 		make defconfig
@@ -18,6 +23,10 @@ cd src
 	
 	#busybox
 	wget https://www.busybox.net/downloads/busybox-$BUSYBOX_VERSION.tar.bz2
+	if [ $? -ne 0 ]; then
+    	echo "Busybox download failed! Check your network connection."
+    	exit 1
+    fi
 	tar -xf busybox-$BUSYBOX_VERSION.tar.bz2
     cd busybox-$BUSYBOX_VERSION
 		make defconfig

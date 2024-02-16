@@ -17,7 +17,7 @@
   - `cpio`
   - `musl-gcc` (for a statically linked Busybox build)
 - Run this (on Arch):
-  - `sudo pacman -S make gcc wget tar cpio && yay -S musl-gcc`
+  - `sudo pacman -S bc make gcc wget tar cpio && yay -S musl-gcc`
 
 ## Getting started
 
